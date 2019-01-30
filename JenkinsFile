@@ -1,0 +1,66 @@
+pipeline {
+    
+	agent any
+    
+	tools {
+        
+		maven "Maven3.6.0"
+    
+	      }
+
+	      stages 
+	      {
+        
+			//stage('Clean Repo') 
+			//{ 
+            
+			//steps {
+                
+			//	bat "rmdir /s /q NRProject1"
+                
+			//	bat "git clone https://github.com/prayatn/NRProject1.git"
+            
+			//      }
+        
+			//}
+        
+			stage('Build') 
+			{ 
+            
+			steps {
+                
+				//bat "mvn.cmd clean -f NRProject1"
+            
+				bat "mvn.cmd clean"
+            
+			      }
+ 
+		        }
+        
+			stage('Test') { 
+
+		        steps {
+		
+                //bat "mvn.cmd test -f NRProject1" 
+				bat "mvn.cmd test"
+                
+				//echo ("Testing")
+            
+				}
+ 
+		       }
+        
+			stage('Deploy') {
+		        steps {
+                
+				bat "mvn.cmd package -f NRProject1"
+
+		                //echo ("Deploying")
+            
+				}
+        
+			}
+    
+		}
+
+	}
