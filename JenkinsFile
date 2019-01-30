@@ -53,8 +53,8 @@ pipeline {
 			stage('Deploy') {
 		        steps {
                 
-				bat "mvn.cmd package -f NRProject1"
-
+				//bat "mvn.cmd package -f NRProject1"
+				bat "mvn.cmd package"
 		                //echo ("Deploying")
             
 				}
